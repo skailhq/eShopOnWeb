@@ -27,11 +27,11 @@ spec:
       - name: ASPNETCORE_URLS
         value: http://+:80
     volumeMounts:
-      - mountPath: /root/.aspnet/https
-        name: home-geovani-.aspnet-https-host-0
+      - mountPath: /tmp/.aspnet/https
+        name: home-skail-.aspnet-https-host-0
         readOnly: true
-      - mountPath: /root/.microsoft/usersecrets
-        name: home-geovani-.microsoft-usersecrets-host-1
+      - mountPath: /tmp/.microsoft/usersecrets
+        name: home-skail-.microsoft-usersecrets-host-1
         readOnly: true
     ports:
       - containerPort: 80
@@ -47,11 +47,11 @@ spec:
       - name: ASPNETCORE_URLS
         value: http://+:81
     volumeMounts:
-      - mountPath: /root/.aspnet/https
-        name: home-geovani-.aspnet-https-host-0
+      - mountPath: /tmp/.aspnet/https
+        name: home-skail-.aspnet-https-host-0
         readOnly: true
-      - mountPath: /root/.microsoft/usersecrets
-        name: home-geovani-.microsoft-usersecrets-host-1
+      - mountPath: /tmp/.microsoft/usersecrets
+        name: home-skail-.microsoft-usersecrets-host-1
         readOnly: true
     ports:
       - containerPort: 81
@@ -60,11 +60,11 @@ spec:
   restartPolicy: Never
   volumes:
     - hostPath:
-        path: /home/geovani/.aspnet/https
+        path: /tmp/.aspnet/https
         type: Directory
-      name: home-geovani-.aspnet-https-host-0
+      name: home-skail-.aspnet-https-host-0
     - hostPath:
-        path: /home/geovani/.microsoft/usersecrets
+        path: /tmp/.microsoft/usersecrets
         type: Directory
-      name: home-geovani-.microsoft-usersecrets-host-1
+      name: home-skail-.microsoft-usersecrets-host-1
 status: {}
