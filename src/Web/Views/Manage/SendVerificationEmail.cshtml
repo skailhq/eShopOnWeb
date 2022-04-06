@@ -1,0 +1,30 @@
+@model IndexViewModel
+
+@{
+    ViewData["Title"] = "Send Verification Email";
+    ViewData.AddActivePage(ManageNavPages.SendVerificationEmail);
+}
+
+<h4>@ViewData["Title"]</h4>
+<partial name="_StatusMessage" for="StatusMessage" />
+<p class="text-info">
+    If you haven't received a verification email, please click below to re-send it. 
+    If you still don't receive a mail after trying multiple times, please make sure it is spelled correctly.
+</p>
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <button asp-action="SendVerificationEmail" class="btn btn-link">Send verification email</button>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -16,6 +16,8 @@ public static class ManageNavPages
 
     public static string TwoFactorAuthentication => "TwoFactorAuthentication";
 
+    public static string SendVerificationEmail => "SendVerificationEmail";
+    
     public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
     public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);

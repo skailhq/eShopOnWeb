@@ -22,7 +22,9 @@ public static class ConfigureCoreServices
         services.AddScoped<IBasketQueryService, BasketQueryService>();
         services.AddSingleton<IUriComposer>(new UriComposer(configuration.Get<CatalogSettings>()));
         services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
-        services.AddTransient<IEmailSender, EmailSender>();
+        
+        // Fix Identity 
+        services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
 
         return services;
     }
