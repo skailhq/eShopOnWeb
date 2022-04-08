@@ -112,8 +112,8 @@ podman-compose build
 podman play kube podman-play.yml
 
 -- create migration (from Web folder CLI)
-ASPNETCORE_ENVIRONMENT=Podman dotnet ef database update -c catalogcontext -p ../Infrastructure/Infrastructure.csproj -s Web.csproj
-ASPNETCORE_ENVIRONMENT=Podman dotnet ef database update -c appidentitydbcontext  -p ../Infrastructure/Infrastructure.csproj -s Web.csproj
+dotnet ef database update -c catalogcontext -p ../Infrastructure/Infrastructure.csproj -s Web.csproj --configuration Podman
+dotnet ef database update -c appidentitydbcontext  -p ../Infrastructure/Infrastructure.csproj -s Web.csproj --configuration Podman
 
 -- restart pod
 podman pod stop pod_eshoponweb

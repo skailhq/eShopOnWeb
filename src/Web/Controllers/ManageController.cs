@@ -111,6 +111,8 @@ public class ManageController : Controller
         {
             return View(model);
         }
+        
+        if (model.IsEmailConfirmed) return RedirectToAction(nameof(MyAccount));
 
         var user = await _userManager.GetUserAsync(User);
         if (user == null)
