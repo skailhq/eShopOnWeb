@@ -16,6 +16,12 @@ using Microsoft.eShopWeb.Web;
 using Microsoft.eShopWeb.Web.Configuration;
 using Microsoft.eShopWeb.Web.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Skail.Platform.Runtime;
+using Skail.Platform.Runtime.Core;
+using Skail.Platform.Runtime.Core.DependencyInjection;
+using Skail.Platform.Runtime.Internals;
+
+[assembly: SkailPlatformEntrypoint]
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -94,7 +100,19 @@ builder.Services.AddBlazorServices();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+if (Environment.GetEnvironmentVariable("SIDECAR") != null)
+{
+    builder.Host.UseServiceProviderFactory(PlatformServiceProviderFactory.Current);
+}
+
 var app = builder.Build();
+
+if (Environment.GetEnvironmentVariable("SKAIL_FUNC") != null)
+{
+    await Platform.Initialize(app).RunAsync();
+    return;
+}
+
 
 app.Logger.LogInformation("App created...");
 

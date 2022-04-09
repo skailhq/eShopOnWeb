@@ -22,9 +22,38 @@
       "launchBrowser": true,
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    },
+    "SkailWeb": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SIDECAR": "dev-nomad-01.skail.me:5003",
+        "SkailPlatform__Logging__LogLevel": "Default",
+        "NAMESPACE": "eShopOnWeb",
+        "IMAGE": "oci://registry.digitalocean.com/skail/func/eShopOnWeb:v0.0.1",
+        "BATCH_SIZE": "1",
+        "SkailPlatform__Remote__0__TypeQualifiedName": "Microsoft.AspNetCore.Identity.UI.Services.IEmailSender",
+        "SkailPlatform__Remote__0__ImageUri": "oci://registry.digitalocean.com/skail/func/sendemail:v0.0.1"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    },
+    "SendEmail": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SIDECAR": "dev-nomad-01.skail.me:5003",
+        "SkailPlatform__Logging__LogLevel": "Default",
+        "NAMESPACE": "eShopOnWeb",
+        "IMAGE": "oci://registry.digitalocean.com/skail/func/sendemail:v0.0.1",
+        "BATCH_SIZE": "1",
+        "SKAIL_FUNC": "true"
+      }
     },
     "Web - PROD": {
       "commandName": "Project",
