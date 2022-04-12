@@ -25,6 +25,7 @@ public static class ConfigureCoreServices
         
         // Fix Identity 
         services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
+        services.AddTransient<IEmailSender, EmailSender>();
 
         return services;
     }

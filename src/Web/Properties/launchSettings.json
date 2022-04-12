@@ -37,8 +37,11 @@
         "NAMESPACE": "eShopOnWeb",
         "IMAGE": "oci://registry.digitalocean.com/skail/func/eShopOnWeb:v0.0.1",
         "BATCH_SIZE": "1",
+        "DELAY_MS": "5000",
         "SkailPlatform__Remote__0__TypeQualifiedName": "Microsoft.AspNetCore.Identity.UI.Services.IEmailSender",
-        "SkailPlatform__Remote__0__ImageUri": "oci://registry.digitalocean.com/skail/func/sendemail:v0.0.1"
+        "SkailPlatform__Remote__0__ImageUri": "oci://registry.digitalocean.com/skail/func/sendemail:v0.0.1",
+        "SkailPlatform__Remote__1__TypeQualifiedName": "Microsoft.eShopWeb.Infrastructure.Services.IEmailSender",
+        "SkailPlatform__Remote__1__ImageUri": "oci://registry.digitalocean.com/skail/func/sendemail:v0.0.1"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     },

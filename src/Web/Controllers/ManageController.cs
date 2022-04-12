@@ -3,12 +3,13 @@ using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.Infrastructure.Identity;
+using Microsoft.eShopWeb.Infrastructure.Services;
 using Microsoft.eShopWeb.Web.Services;
 using Microsoft.eShopWeb.Web.ViewModels.Manage;
+using Skail.Platform.Runtime.Schedulers;
 
 namespace Microsoft.eShopWeb.Web.Controllers;
 
@@ -123,7 +124,13 @@ public class ManageController : Controller
         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
         var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
         var email = user.Email;
-        await _emailSender.SendEmailConfirmationAsync(email, callbackUrl);
+        var _delay = Environment.GetEnvironmentVariable("DELAY_MS");
+        Int32 delay = 0;
+        if (_delay != null)
+        {
+            Int32.TryParse(_delay, out delay);
+        }
+        await _emailSender.Delay(delay).SendEmailConfirmationAsync(email, callbackUrl);
 
         StatusMessage = "Verification email sent. Please check your email.";
         return RedirectToAction(nameof(MyAccount));
