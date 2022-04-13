@@ -11,7 +11,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
-		<PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.11" />
+		<PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.13" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.1" />
 	</ItemGroup>
 	<ItemGroup>
