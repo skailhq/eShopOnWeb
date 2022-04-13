@@ -1,10 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.eShopWeb.ApplicationCore.Interfaces;
-using Microsoft.Extensions.Logging;
-using System.Net.Mail;
+﻿using Microsoft.Extensions.Logging;
 using System.Net.Sockets;
-using Microsoft.IdentityModel.Tokens;
+using Castle.Core.Internal;
 
 namespace Microsoft.eShopWeb.Infrastructure.Services;
 

@@ -16,8 +16,10 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\ApplicationCore\ApplicationCore.csproj" />
+		<ProjectReference Include="..\SendEmail\SendEmail.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Data\Migrations\" />
+		<Folder Include="Services" />
 	</ItemGroup>
 </Project>
