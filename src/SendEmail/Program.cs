@@ -13,6 +13,8 @@ builder.ConfigureServices( (hostContext, services) =>
     // used by Identity 
     services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
     services.AddTransient<IEmailSender, EmailSender>();
+    
+    services.AddScoped<IGenerateDateTimeCommand, GenerateDateTimeCommand>();
 });
 builder.Build();
 await Platform.Initialize().RunAsync();

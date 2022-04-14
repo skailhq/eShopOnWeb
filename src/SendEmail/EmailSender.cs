@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Globalization;
+using Microsoft.Extensions.Logging;
 using System.Net.Sockets;
 using Castle.Core.Internal;
 
@@ -9,15 +10,20 @@ namespace Microsoft.eShopWeb.Infrastructure.Services;
 public class EmailSender : IEmailSender
 {
     private readonly ILogger<EmailSender> _logger;
+    private readonly IGenerateDateTimeCommand _command;
 
-    public EmailSender(ILogger<EmailSender> logger)
+    public EmailSender(ILogger<EmailSender> logger, IGenerateDateTimeCommand command)
     {
         _logger = logger;
+        _command = command;
     }
 
     public Task SendEmailAsync(string email, string subject, string message)
     {
         // TODO: Wire this up to actual email sending logic via SendGrid, local SMTP, etc.
+        var date = _command.Execute();
+        message = String.Concat(message, "\n Sent date:", date);
+        
         _logger.LogInformation(message);
         
         // Used on demonstrations (using command "nc -l 2525 -v" to show message)
@@ -37,14 +43,13 @@ public class EmailSender : IEmailSender
 
             stream.Write(data, 0, data.Length);
 
-            Console.WriteLine("Sent: {0}", message);
-
             stream.Close();
             client.Close();
         }
         catch (Exception e)
         {
             _logger.LogInformation(e.Message);
+            throw;
         }
         
         return Task.CompletedTask;

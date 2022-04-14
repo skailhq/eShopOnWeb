@@ -11,7 +11,8 @@
         "IMAGE": "oci://registry.digitalocean.com/skail/func/sendemail:v0.0.1",
         "BATCH_SIZE": "1",
         "SKAIL_FUNC": "true",
-        "SMTP_SERVER": "127.0.0.1:2525"
+        "SMTP_SERVER": "127.0.0.1:2525",
+        "SkailPlatform__Durable__0__TypeQualifiedName": "Microsoft.eShopWeb.Infrastructure.Services.IGenerateDateTimeCommand"
       }
     }
   }
