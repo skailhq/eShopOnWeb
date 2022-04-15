@@ -23,10 +23,6 @@ public static class ConfigureCoreServices
         services.AddSingleton<IUriComposer>(new UriComposer(configuration.Get<CatalogSettings>()));
         services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
         
-        // used by Identity 
-        services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
-        services.AddTransient<IEmailSender, EmailSender>();
-
         return services;
     }
 }

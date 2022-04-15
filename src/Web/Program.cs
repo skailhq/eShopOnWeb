@@ -12,6 +12,7 @@ using Microsoft.eShopWeb;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.Infrastructure.Data;
 using Microsoft.eShopWeb.Infrastructure.Identity;
+using Microsoft.eShopWeb.Infrastructure.Services;
 using Microsoft.eShopWeb.Web;
 using Microsoft.eShopWeb.Web.Configuration;
 using Microsoft.eShopWeb.Web.HealthChecks;
@@ -45,6 +46,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 builder.Services.AddScoped<ITokenClaimsService, IdentityTokenClaimService>();
 
 builder.Services.AddCoreServices(builder.Configuration);
+builder.Services.AddSendemailServices(builder.Configuration);
 builder.Services.AddWebServices(builder.Configuration);
 
 // Add memory cache services
