@@ -4,6 +4,7 @@ public static class Constants
 {
     public static class Roles
     {
-        public const string ADMINISTRATORS = "Administrators";
+        // To avoid circle dependency was moved to ApplicationCore
+        //public const string ADMINISTRATORS = "Administrators";
     }
 }

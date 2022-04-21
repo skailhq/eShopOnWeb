@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using MinimalApi.Endpoint;
+using Microsoft.eShopWeb.ApplicationCore.Constants;
 
 namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints;
 
@@ -26,7 +27,7 @@ public class UpdateCatalogItemEndpoint : IEndpoint<IResult, UpdateCatalogItemReq
     public void AddRoute(IEndpointRouteBuilder app)
     {
         app.MapPut("api/catalog-items",
-            [Authorize(Roles = BlazorShared.Authorization.Constants.Roles.ADMINISTRATORS, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] async
+            [Authorize(Roles = AuthorizationConstants.BLAZOR_ROLES_ADMINISTRATORS, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] async
             (UpdateCatalogItemRequest request, IRepository<CatalogItem> itemRepository) =>
             {
                 _itemRepository = itemRepository;

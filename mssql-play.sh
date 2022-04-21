@@ -1,8 +1,6 @@
-﻿#!/bin/bash
-podman run -e SA_PASSWORD=@someThingComplicated1234 -e ACCEPT_EULA=Y --rm=true -p 1433:1433/tcp mcr.microsoft.com/azure-sql-edge:latest &
-
-
-sleep 30
+#!/bin/bash
+#podman run -e SA_PASSWORD=@someThingComplicated1234 -e ACCEPT_EULA=Y --rm=true -p 1433:1433/tcp mcr.microsoft.com/azure-sql-edge:latest &
+#sleep 30
 
 cd src/Web
 dotnet restore

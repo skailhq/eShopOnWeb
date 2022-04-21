@@ -1,0 +1,20 @@
+BlazorAdmin/
+BlazorShared/
+PublicApi/
+Web/
+
+# Build results
+*/[Dd]ebug/
+*/[Dd]ebugPublic/
+*/[Rr]elease/
+*/[Rr]eleases/
+*/x64/
+*/x86/
+*/bld/
+*/[Bb]in/
+*/[Oo]bj/
+*/[Ll]og/
+
+# .env file contains default environment variables for docker
+.env
+.git/

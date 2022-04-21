@@ -1,0 +1,56 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+ARG feed_name
+ARG feed_user
+ARG feed_password
+WORKDIR /src
+
+RUN dotnet nuget add source https://pkgs.dev.azure.com/virtualgroup/Plataforma/_packaging/skail-dev/nuget/v3/index.json --name $feed_name --username $feed_user --password $feed_password --store-password-in-clear-text
+
+COPY ./ApplicationCore/ ./ApplicationCore/
+RUN dotnet build ./ApplicationCore/ApplicationCore.csproj \
+    -c Release \
+    -r ubuntu.20.04-x64 \
+    --no-dependencies \
+    --restore \
+    --self-contained true
+
+COPY ./SendEmail/ ./SendEmail/
+RUN dotnet build ./SendEmail/SendEmail.csproj \
+    -c Release \
+    -r ubuntu.20.04-x64 \
+    --no-dependencies \
+    --restore \
+    --self-contained true
+    
+COPY ./Infrastructure/ ./Infrastructure/
+RUN dotnet build ./Infrastructure/Infrastructure.csproj \
+    -c Release \
+    -r ubuntu.20.04-x64 \
+    --restore \
+    --self-contained true
+
+COPY ./AccountValidation/ ./AccountValidation/
+RUN dotnet build ./AccountValidation/AccountValidation.csproj \
+    -c Release \
+    -p:UseAppHost=true \
+    -r ubuntu.20.04-x64 \
+    --restore \
+    --self-contained true
+
+RUN dotnet publish ./AccountValidation/AccountValidation.csproj \
+    -p:PublishSingleFile=true \
+    -p:PublishReadyToRun=false \
+    -p:ErrorOnDuplicatePublishOutputFiles=false \
+    -r ubuntu.20.04-x64 \
+    -c Release \
+    --self-contained true \
+    --no-dependencies \
+    --no-restore \
+    -o /skail/app 
+
+FROM scratch as runtime
+WORKDIR /
+
+COPY --from=build /skail/app/AccountValidation ./app/skail_func
+COPY --from=build /src/AccountValidation/env.sh ./.env.sh
+

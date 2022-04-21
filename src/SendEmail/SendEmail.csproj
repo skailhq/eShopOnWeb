@@ -4,6 +4,7 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RuntimeIdentifiers>alpine-x64;ubuntu.20.04-x64</RuntimeIdentifiers>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
@@ -14,8 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
-      <PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.13" />
+      <PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.23" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,6 +24,19 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </Content>
+      <Content Include="appsettings.Development.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="env.sh">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>

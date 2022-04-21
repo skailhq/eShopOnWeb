@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>Microsoft.eShopWeb.Infrastructure</RootNamespace>
+    <RuntimeIdentifiers>alpine-x64;ubuntu.20.04-x64</RuntimeIdentifiers>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -11,7 +12,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
-		<PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.13" />
+		<PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.23" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.1" />
 	</ItemGroup>
 	<ItemGroup>

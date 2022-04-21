@@ -2,7 +2,7 @@
 
 namespace Microsoft.eShopWeb.Infrastructure.Services;
 
-public interface IEmailSender : Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, IDelayable
+public interface IEmailSender : IDelayable
 {
-    
+    Task SendEmailAsync(string email, string subject, string htmlMessage);
 }

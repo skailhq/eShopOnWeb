@@ -130,7 +130,7 @@ public class ManageController : Controller
         {
             Int32.TryParse(_delay, out delay);
         }
-        await _emailSender.Delay(delay).SendEmailConfirmationAsync(email, callbackUrl);
+        await _emailSender.Delay<IEmailSender>(delay).SendEmailConfirmationAsync(email, callbackUrl);
 
         StatusMessage = "Verification email sent. Please check your email.";
         return RedirectToAction(nameof(MyAccount));

@@ -3,8 +3,9 @@
 
 @inherits BlazorAdmin.Helpers.BlazorLayoutComponent
 
+@using Microsoft.eShopWeb.ApplicationCore.Constants
 
-<AuthorizeView Roles=@BlazorShared.Authorization.Constants.Roles.ADMINISTRATORS>
+<AuthorizeView Roles=@AuthorizationConstants.BLAZOR_ROLES_ADMINISTRATORS>
     <div class="sidebar">
         <NavMenu />
     </div>

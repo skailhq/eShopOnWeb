@@ -47,6 +47,7 @@ builder.Services.AddScoped<ITokenClaimsService, IdentityTokenClaimService>();
 
 builder.Services.AddCoreServices(builder.Configuration);
 builder.Services.AddSendemailServices(builder.Configuration);
+builder.Services.AddAccountValidationServices(builder.Configuration);
 builder.Services.AddWebServices(builder.Configuration);
 
 // Add memory cache services

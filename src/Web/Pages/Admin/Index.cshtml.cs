@@ -9,7 +9,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace Microsoft.eShopWeb.Web.Pages.Admin;
 
-[Authorize(Roles = BlazorShared.Authorization.Constants.Roles.ADMINISTRATORS)]
+[Authorize(Roles = AuthorizationConstants.BLAZOR_ROLES_ADMINISTRATORS)]
 public class IndexModel : PageModel
 {
     public IndexModel()

@@ -22,7 +22,7 @@ public class EmailSender : IEmailSender
     {
         // TODO: Wire this up to actual email sending logic via SendGrid, local SMTP, etc.
         var date = _command.Execute();
-        message = String.Concat(message, "\n Sent date:", date);
+        message = String.Concat("\nSent date:", date, "\n", message);
         
         _logger.LogInformation(message);
         
