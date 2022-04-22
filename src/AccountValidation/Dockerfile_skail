@@ -51,6 +51,6 @@ RUN dotnet publish ./AccountValidation/AccountValidation.csproj \
 FROM scratch as runtime
 WORKDIR /
 
-COPY --from=build /skail/app/AccountValidation ./app/skail_func
+COPY --from=build /skail/app/AccountValidation ./skail_func
 COPY --from=build /src/AccountValidation/env.sh ./.env.sh
 

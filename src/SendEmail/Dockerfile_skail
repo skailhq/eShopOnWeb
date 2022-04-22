@@ -18,7 +18,7 @@ RUN dotnet publish ./SendEmail.csproj \
   
 FROM scratch as runtime
 WORKDIR /
-COPY --from=build /skail/SendEmail ./app/skail_func
+COPY --from=build /skail/SendEmail ./skail_func
 COPY --from=build /skail/env.sh ./.env.sh
 
 
