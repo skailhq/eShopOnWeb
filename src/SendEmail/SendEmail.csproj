@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.24" />
+      <PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.25" />
     </ItemGroup>
 
     <ItemGroup>

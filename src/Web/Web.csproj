@@ -33,8 +33,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.24" />
-    <PackageReference Include="Skail.Platform.Runtime.Extensions" Version="1.0.0-alpha.24" />
+    <PackageReference Include="Skail.Platform.Runtime" Version="1.0.0-alpha.25" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.1" />
   </ItemGroup>
   <ItemGroup>
