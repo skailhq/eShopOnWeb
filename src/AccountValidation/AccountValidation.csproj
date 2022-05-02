@@ -35,11 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="env.sh">
+    <None Include=".skailenv">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
+    </None>
   </ItemGroup>
 
 </Project>

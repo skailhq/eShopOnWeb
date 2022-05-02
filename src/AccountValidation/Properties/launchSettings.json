@@ -22,7 +22,7 @@
         "SKAIL_FUNC": "true",
         "SMTP_SERVER": "137.184.101.250:2525",
         "WAIT_SECONDS": "5",
-        "TRIGGER": "true"
+        "TRIGGER": "false"
       }
     }
   }
