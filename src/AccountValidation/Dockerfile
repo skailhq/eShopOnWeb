@@ -59,13 +59,13 @@ ENV ASPNETCORE_ENVIRONMENT=Development
 ENV SIDECAR=dev-nomad-01.skail.me:5003
 ENV SkailPlatform__Logging__LogLevel=Default
 ENV NAMESPACE=eShopOnWeb
-ENV IMAGE=oci://registry.digitalocean.com/skail/func/accountvalidation:v0.0.1
+ENV IMAGE=oci://registry.digitalocean.com/skail/eshoppingweb/accountvalidation:v0.0.1
 ENV BATCH_SIZE=1
 ENV SKAIL_FUNC=true
 ENV SMTP_SERVER=137.184.101.250:2525
 ENV WAIT_SECONDS=5
 ENV SkailPlatform__Remote__0__TypeQualifiedName="Microsoft.eShopWeb.Infrastructure.Services.IAccountValidation"
-ENV SkailPlatform__Remote__0__ImageUri="oci://registry.digitalocean.com/skail/func/accountvalidation:v0.0.1"
+ENV SkailPlatform__Remote__0__ImageUri="oci://registry.digitalocean.com/skail/eshoppingweb/accountvalidation:v0.0.1"
 ENV ConnectionStrings__IdentityConnection="Server=137.184.101.250,1433;Integrated Security=true;Initial Catalog=Microsoft.eShopOnWeb.Identity;User Id=sa;Password=@someThingComplicated1234;Trusted_Connection=false;"
 ENV DOTNET_ROOT=/usr/share/dotnet  
 

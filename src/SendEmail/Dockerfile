@@ -26,7 +26,7 @@ ENV ASPNETCORE_ENVIRONMENT="Development"
 ENV SIDECAR="dev-nomad-01.skail.me:5003"
 ENV SkailPlatform__Logging__LogLevel="Default"
 ENV NAMESPACE="eShopOnWeb"
-ENV IMAGE="oci://registry.digitalocean.com/skail/func/sendemail:v0.0.1"
+ENV IMAGE="oci://registry.digitalocean.com/skail/eshoppingweb/sendemail:v0.0.1"
 ENV BATCH_SIZE="1"
 ENV SMTP_SERVER="137.184.101.250:2525"
 
